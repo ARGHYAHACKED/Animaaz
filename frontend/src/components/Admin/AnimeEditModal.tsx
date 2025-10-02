@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState,  useEffect } from 'react';
 
 interface AnimeEditModalProps {
   open: boolean;
@@ -61,11 +61,18 @@ const AnimeEditModal: React.FC<AnimeEditModalProps> = ({ open, onClose, anime, o
   if (!open) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
-    setForm((prev: any) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    const { name, value, type } = e.target;
+    if (type === 'checkbox') {
+      setForm((prev: any) => ({
+        ...prev,
+        [name]: (e.target as HTMLInputElement).checked
+      }));
+    } else {
+      setForm((prev: any) => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {

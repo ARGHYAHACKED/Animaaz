@@ -5,6 +5,7 @@ import { Anime } from '../types';
 
 interface AnimeCardProps {
   anime: Anime;
+  classNameForDescription?: string;
 }
 
 const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {

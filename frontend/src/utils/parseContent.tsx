@@ -1,6 +1,6 @@
 // Utility to parse content for hashtags and spoilers
 import React from 'react';
-import Spoiler from '../components/Spoiler';
+// import Spoiler from '../components/Spoiler';
 
 // Returns an array of React nodes with hashtags and spoilers parsed
 export function parseContent(content: string, onTagClick?: (tag: string) => void): React.ReactNode[] {
@@ -22,9 +22,9 @@ export function parseContent(content: string, onTagClick?: (tag: string) => void
       // Parse hashtags in the non-spoiler part
       nodes = nodes.concat(parseHashtags(contentToParse.slice(lastIndex, match.index), onTagClick, idx++));
     }
-    nodes.push(
-      <Spoiler key={`spoiler-${idx++}`}>{parseHashtags(match[1], onTagClick, idx++)}</Spoiler>
-    );
+    // nodes.push(
+    //   <Spoiler key={`spoiler-${idx++}`}>{parseHashtags(match[1], onTagClick, idx++)}</Spoiler>
+    // );
     lastIndex = match.index + match[0].length;
   }
   if (lastIndex < contentToParse.length) {

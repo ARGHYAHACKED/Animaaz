@@ -81,7 +81,7 @@ const PostDetails: React.FC = () => {
     await load();
   };
 
-  const [showPostEmojiPicker, setShowPostEmojiPicker] = useState(false);
+  // const [_showPostEmojiPicker, setShowPostEmojiPicker] = useState(false);
   const [showPostCommentInput, setShowPostCommentInput] = useState(false);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
   const bookmark = async () => {
