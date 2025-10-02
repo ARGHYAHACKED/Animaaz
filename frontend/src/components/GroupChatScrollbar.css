@@ -1,0 +1,16 @@
+/* Custom scrollbar for chat */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background: #18181b;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #a78bfa;
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #a78bfa #18181b;
+}
