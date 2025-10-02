@@ -67,7 +67,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const checkAuth = async () => {
       if (token) {
         try {
-          const response = await axios.get('http://localhost:5000/api/auth/me');
+          const response = await axios.get('https://animaaz.onrender.com/api/auth/me');
           const d = response.data;
           setUser({
             id: d._id || d.id,
@@ -90,7 +90,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('http://https://animaaz.onrender.com/api/auth/login', {
         email,
         password,
       });
@@ -111,7 +111,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const register = async (username: string, email: string, password: string) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post('http://https://animaaz.onrender.com/api/auth/register', {
         username,
         email,
         password,
@@ -134,7 +134,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const logout = async () => {
     try {
       if (token) {
-        await axios.post('http://localhost:5000/api/auth/logout');
+        await axios.post('http://https://animaaz.onrender.com/api/auth/logout');
       }
     } catch (error) {
       console.error('Logout error:', error);

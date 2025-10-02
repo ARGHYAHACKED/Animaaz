@@ -53,25 +53,25 @@ const Home: React.FC = () => {
     const fetchHomeData = async () => {
       try {
         ('[Home] Fetching featured anime from /api/curation/featured');
-        const curatedFeaturedReq = () => axios.get('http://localhost:5000/api/curation/featured');
+        const curatedFeaturedReq = () => axios.get('http://https://animaaz.onrender.com/api/curation/featured');
         ('[Home] Fetching popular anime from /api/anime/popular');
-        const popularReq = () => axios.get('http://localhost:5000/api/anime/popular');
+        const popularReq = () => axios.get('http://https://animaaz.onrender.com/api/anime/popular');
         ('[Home] Fetching genres from /api/anime/genres');
-        const genresReq = () => axios.get('http://localhost:5000/api/anime/genres');
+        const genresReq = () => axios.get('http://https://animaaz.onrender.com/api/anime/genres');
         ('[Home] Fetching trending anime from /api/curation/trending');
-        const trendingReq = () => axios.get('http://localhost:5000/api/curation/trending');
+        const trendingReq = () => axios.get('http://https://animaaz.onrender.com/api/curation/trending');
         ('[Home] Fetching top week anime from /api/curation/topWeek');
-        const topWeekReq = () => axios.get('http://localhost:5000/api/curation/topWeek');
+        const topWeekReq = () => axios.get('http://https://animaaz.onrender.com/api/curation/topWeek');
         ('[Home] Fetching top airing anime from /api/curation/topAiring');
-        const topAiringReq = () => axios.get('http://localhost:5000/api/curation/topAiring');
+        const topAiringReq = () => axios.get('http://https://animaaz.onrender.com/api/curation/topAiring');
         ('[Home] Fetching for you anime from /api/curation/forYou');
-        const forYouReq = () => axios.get('http://localhost:5000/api/curation/forYou');
+        const forYouReq = () => axios.get('http://https://animaaz.onrender.com/api/curation/forYou');
         ('[Home] Fetching popular groups from /api/groups?limit=8');
-        const groupsReq = () => axios.get('http://localhost:5000/api/groups?limit=8');
+        const groupsReq = () => axios.get('http://https://animaaz.onrender.com/api/groups?limit=8');
         ('[Home] Fetching recent posts from /api/community/posts?limit=6');
-        const postsReq = () => axios.get('http://localhost:5000/api/community/posts?limit=6');
+        const postsReq = () => axios.get('http://https://animaaz.onrender.com/api/community/posts?limit=6');
   ('[Home] Fetching banner anime from /api/curation/banner');
-  const bannersReq = () => axios.get('http://localhost:5000/api/curation/banner');
+  const bannersReq = () => axios.get('http://https://animaaz.onrender.com/api/curation/banner');
 
         const [curatedFeaturedRes, popularRes, genresRes, trendingRes, topWeekRes, groupsRes, postsRes, bannersRes, topAiringRes, forYouRes] = await Promise.all([
           withRetry(curatedFeaturedReq),

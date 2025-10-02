@@ -1,6 +1,6 @@
 import { io, Socket } from 'socket.io-client';
 
-const SOCKET_URL = 'http://localhost:5000';
+const SOCKET_URL = 'http://https://animaaz.onrender.com';
 let socket: Socket | null = null;
 
 export const initializeSocket = (token: string, userId?: string) => {
