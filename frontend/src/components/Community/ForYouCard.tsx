@@ -1,4 +1,4 @@
-import React from 'react';
+// ...existing code...
 import { Link } from 'react-router-dom';
 
 const ForYouCard = ({ post }: { post: any }) => (

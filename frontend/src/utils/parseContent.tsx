@@ -8,7 +8,7 @@ export function parseContent(content: string, onTagClick?: (tag: string) => void
   // Regex for [spoiler]...[/spoiler]
   const spoilerRegex = /\[spoiler\]([\s\S]*?)\[\/spoiler\]/gi;
   // Regex for hashtags
-  const hashtagRegex = /#([\w\d_\-]+)/g;
+  // ...existing code...
 
   let nodes: React.ReactNode[] = [];
   let lastIndex = 0;

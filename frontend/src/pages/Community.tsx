@@ -32,7 +32,7 @@ const Community: React.FC = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [tagInput, setTagInput] = useState('');
   const [tagList, setTagList] = useState<string[]>([]);
-  const [q, setQ] = useState('');
+  // ...existing code...
   const [isManga, setIsManga] = useState(false);
   const [isSpoiler, setIsSpoiler] = useState(false);
   const [images, setImages] = useState<File[]>([]);
@@ -87,7 +87,7 @@ const Community: React.FC = () => {
   const loadTags = async () => {
     try {
       const res = await api.get('/community/tags');
-      ('Frontend fetched tags:', res.data.tags);
+  // console.log('Frontend fetched tags:', res.data.tags);
       setTags(res.data.tags || []);
     } catch (e) {
       setTags([]);

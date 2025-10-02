@@ -14,7 +14,7 @@ const Search: React.FC = () => {
   const [ready, setReady] = useState(true);
   const [list, setList] = useState<any[]>([]);
   const [total, setTotal] = useState(0);
-  const [genres, setGenres] = useState<string[]>([]);
+  const [, setGenres] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   
   // Add refs to track if we should update the URL or if state was just set from URL

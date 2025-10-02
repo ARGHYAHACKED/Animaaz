@@ -16,7 +16,7 @@ interface MainInfoProps {
 	id: string | undefined;
 }
 
-const MainInfo: React.FC<MainInfoProps> = ({ anime, liked, bookmarked, ratingValue, setRatingValue, handleLike, handleBookmark, handleShare, setAnime, user, id }) => {
+const MainInfo: React.FC<MainInfoProps> = ({ anime, liked, bookmarked, ratingValue, setRatingValue, handleLike, handleBookmark, handleShare, setAnime, id }) => {
 	const totalLikes = (anime.likes?.length || 0) + (anime.dummyLikes || 0);
 	const totalViews = (anime.views || 0) + (anime.dummyViews || 0);
 	const avgOutOf5 = (anime.averageRating || 0).toFixed(1);

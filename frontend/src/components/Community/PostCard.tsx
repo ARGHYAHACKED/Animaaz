@@ -11,7 +11,7 @@ interface PostCardProps {
 
 const PostCard = ({ p, user, onLike, onTagClick }: PostCardProps) => {
   // Debug: log like count for each post
-  ('Post:', p._id, 'Likes:', Array.isArray(p.likes) ? p.likes.length : 0, 'Likes array:', p.likes);
+  // console.log('Post:', p._id, 'Likes:', Array.isArray(p.likes) ? p.likes.length : 0, 'Likes array:', p.likes);
   // --- Read More/Show Less state ---
   const [expanded, setExpanded] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);

@@ -19,7 +19,7 @@ const AdminUserStats: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
-  const [showPassword, setShowPassword] = useState<{ [id: string]: boolean }>({});
+  // ...existing code...
   const [likedAnime, setLikedAnime] = useState<any[]>([]);
   const [likedLoading, setLikedLoading] = useState(false);
 

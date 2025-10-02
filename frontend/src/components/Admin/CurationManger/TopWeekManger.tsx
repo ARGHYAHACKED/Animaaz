@@ -13,16 +13,16 @@ const TopWeekManager: React.FC = () => {
 
     // --- State ---
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
-    const [options, setOptions] = useState<any[]>([]);
+    const [options] = useState<any[]>([]);
     const [searchQ, setSearchQ] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
 
-    const loadOptions = async (q = '') => { /* ... unchanged ... */ };
+    const loadOptions = async () => { /* ... unchanged ... */ };
     
     // --- Initial Load FIX: Cache Busting ---
     useEffect(() => {
-        loadOptions('');
+    loadOptions();
         (async () => {
             try {
                 // FIX: Add a unique timestamp as a query parameter to force a fresh fetch

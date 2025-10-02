@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MessageCircle, Heart, Eye, Bookmark, Clock } from 'lucide-react';
+import { MessageCircle, Heart, Eye, Bookmark } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { Post } from '../types';
 

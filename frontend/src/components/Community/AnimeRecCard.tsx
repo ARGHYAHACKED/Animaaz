@@ -1,4 +1,4 @@
-import React from 'react';
+// ...existing code...
 
 const AnimeRecCard = ({ anime }: { anime: any }) => (
   <div className="bg-white dark:bg-gray-800 rounded-xl shadow p-4 flex flex-col gap-2 items-center">

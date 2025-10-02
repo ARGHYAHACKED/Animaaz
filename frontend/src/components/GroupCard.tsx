@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Calendar, MessageCircle } from 'lucide-react';
+import { Users, Calendar } from 'lucide-react';
 import { Group } from '../types';
 
 interface GroupCardProps {
@@ -92,7 +92,7 @@ const GroupCard: React.FC<GroupCardProps> = ({ group }) => {
             <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
               <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Related Anime</div>
               <div className="flex -space-x-2">
-                {group.relatedAnime.slice(0, 3).map((anime, index) => (
+                {group.relatedAnime.slice(0, 3).map((anime) => (
                   <div key={anime._id} className="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800 overflow-hidden">
                     <img
                       src={anime.coverImage}

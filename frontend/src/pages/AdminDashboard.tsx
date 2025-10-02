@@ -26,7 +26,7 @@ const AdminDashboard: React.FC = () => {
 
     const SidebarItem: React.FC<{
         id: string; label: string; Icon: React.ElementType; isActive: boolean; onClick: () => void; children?: React.ReactNode;
-    }> = ({ id, label, Icon, isActive, onClick, children }) => (
+    }> = ({ id, label, Icon, isActive, onClick }) => (
         <div className="w-full">
             <button
                 onClick={onClick}

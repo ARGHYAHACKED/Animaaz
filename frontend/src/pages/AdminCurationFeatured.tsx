@@ -30,7 +30,7 @@ const AdminCurationFeatured: React.FC = () => {
           }),
           api.get('/anime?limit=1000')
         ]);
-        ('[CURATION] Featured:', curRes.data.animeIds);
+  // console.log('[CURATION] Featured:', curRes.data.animeIds);
         setFeatured(curRes.data.animeIds || []);
         setAllAnime(allRes.data.anime || []);
       } catch (err: any) {
@@ -48,7 +48,7 @@ const AdminCurationFeatured: React.FC = () => {
     if (!selectedToAdd) return;
     const anime = allAnime.find(a => a._id === selectedToAdd);
     if (anime && !featured.some(f => f._id === anime._id)) {
-      ('[CURATION] Adding anime:', anime);
+  // console.log('[CURATION] Adding anime:', anime);
       setFeatured([...featured, anime]);
       setSelectedToAdd('');
     }
@@ -56,7 +56,7 @@ const AdminCurationFeatured: React.FC = () => {
 
   // Remove anime from featured
   const handleRemove = (id: string) => {
-    ('[CURATION] Removing anime with id:', id);
+  // console.log('[CURATION] Removing anime with id:', id);
     setFeatured(featured.filter(a => a._id !== id));
   };
 
@@ -66,7 +66,7 @@ const AdminCurationFeatured: React.FC = () => {
     setError(null);
     try {
       const animeIds = featured.map(a => a._id);
-      ('[CURATION] Saving featured animeIds:', animeIds);
+  // console.log('[CURATION] Saving featured animeIds:', animeIds);
       await api.put('/curation/featured', { animeIds });
       // Optionally refetch to confirm
     } catch (err: any) {

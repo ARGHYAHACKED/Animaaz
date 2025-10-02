@@ -6,7 +6,7 @@ interface CommentItemProps {
 }
 
 const CommentItem: React.FC<CommentItemProps> = ({ c, depth = 0 }) => {
-  const [showReply, setShowReply] = useState(false);
+  const [, setShowReply] = useState(false);
   const [replyText, setReplyText] = useState('');
   const [expanded, setExpanded] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);

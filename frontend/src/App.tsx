@@ -1,6 +1,6 @@
 import Featured from './pages/Featured';
 import WatchOnYourMood from './pages/WatchOnYourMood';
-import Landing from './pages/Landing';
+// import Landing from './pages/Landing';
 import Trending from './pages/Trending';
 import ForYou from './pages/ForYou';
 import TopWeek from './pages/TopWeek';

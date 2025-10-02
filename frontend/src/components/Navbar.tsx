@@ -3,14 +3,14 @@
 import type React from "react"
 import { useState, useRef } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { X, Search, User, Settings, LogOut, Home, Users, MessageCircle, ChevronRight } from "lucide-react"
+import { X, Search, User, Settings, LogOut, Home, Users, MessageCircle } from "lucide-react"
 import api from "../utils/api"
 import GroupsDrawer from './GroupsDrawer';
 import { useAuth } from "../contexts/AuthContext"
-import { useTheme } from "../contexts/ThemeContext"
+// ...existing code...
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [, setIsOpen] = useState(false)
   const [showProfileDrawer, setShowProfileDrawer] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<any[]>([])
@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
   const searchTimeout = useRef<number | null>(null)
   const { user, logout } = useAuth()
   const [showGroupsDrawer, setShowGroupsDrawer] = useState(false);
-  const { theme, toggleTheme } = useTheme()
+  // ...existing code...
   const navigate = useNavigate()
   const location = useLocation()
 

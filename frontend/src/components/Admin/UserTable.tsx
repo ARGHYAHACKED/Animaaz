@@ -17,7 +17,7 @@ const UsersTable: React.FC = () => {
       setUsers(res.data.users || []);
       // Log what is coming from backend for avatar/profilePhoto
       if (res.data.users && res.data.users.length) {
-        ('[UserTable] User avatar/profilePhoto sample:', res.data.users.map(u => ({ username: u.username, avatar: u.avatar, profilePhoto: u.profilePhoto })));
+  // console.log('[UserTable] User avatar/profilePhoto sample:', res.data.users.map((u: any) => ({ username: u.username, avatar: u.avatar, profilePhoto: u.profilePhoto })));
       }
       setTotal(res.data.pagination?.total || 0);
       setPage(res.data.pagination?.current || p);

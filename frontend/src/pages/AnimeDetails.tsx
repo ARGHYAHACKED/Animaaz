@@ -154,13 +154,13 @@ const AnimeDetails: React.FC = () => {
 
   const nextScreenshot = () => {
     if (anime?.images && Array.isArray(anime.images) && anime.images.length > 0) {
-      setCurrentScreenshotIndex((prev) => (prev + 1) % anime.images.length)
+  setCurrentScreenshotIndex((prev) => anime.images ? (prev + 1) % anime.images.length : 0)
     }
   }
 
   const prevScreenshot = () => {
     if (anime?.images && Array.isArray(anime.images) && anime.images.length > 0) {
-      setCurrentScreenshotIndex((prev) => (prev - 1 + anime.images.length) % anime.images.length)
+  setCurrentScreenshotIndex((prev) => anime.images ? (prev - 1 + anime.images.length) % anime.images.length : 0)
     }
   }
 

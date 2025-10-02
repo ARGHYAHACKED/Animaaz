@@ -1,5 +1,4 @@
   import React, { useEffect, useState, useRef } from "react";
-  import { gsap } from "gsap";
   import api from "../utils/api";
   import { useAuth } from "../contexts/AuthContext";
   import AnimeCard from "../components/AnimeCard";
@@ -14,8 +13,8 @@
     const { user } = useAuth();
     const [milestones, setMilestones] = useState<Milestone[]>([]);
     const [loading, setLoading] = useState(true);
-    const [saving, setSaving] = useState(false);
-    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [saving, setSaving] = useState(false);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
       if (!user) return;
@@ -26,30 +25,7 @@
       });
     }, [user]);
 
-    useEffect(() => {
-      // Load GSAP
-      const script = document.createElement('script');
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
-      script.async = true;
-      script.onload = () => {
-        if (typeof window.gsap !== 'undefined' && !loading) {
-          window.gsap.from('.milestone-card-animate', {
-            opacity: 0,
-            y: 50,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: 'power3.out'
-          });
-        }
-      };
-      document.body.appendChild(script);
-
-      return () => {
-        if (document.body.contains(script)) {
-          document.body.removeChild(script);
-        }
-      };
-    }, [loading]);
+    // Animation code removed, GSAP no longer loaded
 
     // Scroll to next milestone card
     const scrollToCard = (idx: number) => {
@@ -63,30 +39,6 @@
 
     const handleToggle = async (animeId: string, completed: boolean, idx: number) => {
       setSaving(true);
-
-      // GSAP animation for checkbox click
-      if (typeof window.gsap !== 'undefined' && cardRefs.current[idx]) {
-        const card = cardRefs.current[idx];
-        window.gsap.to(card, {
-          scale: 1.05,
-          duration: 0.2,
-          ease: 'power2.out',
-          yoyo: true,
-          repeat: 1
-        });
-
-        // Animate connecting line if completing
-        if (!completed && idx < milestones.length - 1) {
-          const line = card?.querySelector('.connecting-line-svg');
-          if (line) {
-            window.gsap.fromTo(line, 
-              { attr: { 'stroke-dashoffset': 1000 } },
-              { attr: { 'stroke-dashoffset': 0 }, duration: 0.8, ease: 'power2.inOut' }
-            );
-          }
-        }
-      }
-
       await api.post(`/users/milestones/${animeId}`, { completed: !completed });
       // Refresh milestones
       const res = await api.get('/users/milestones');

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import api from '../utils/api';
 
 interface Group {
@@ -17,7 +17,7 @@ interface GroupsDrawerProps {
 const GroupsDrawer: React.FC<GroupsDrawerProps> = ({ open, onClose, userId }) => {
   const [groups, setGroups] = useState<Group[]>([]);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  // ...existing code...
 
   useEffect(() => {
     if (!open || !userId) return;

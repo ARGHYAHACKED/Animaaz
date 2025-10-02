@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Play, Star, TrendingUp, Users, MessageCircle } from 'lucide-react';
+import { Star, TrendingUp, Users, MessageCircle } from 'lucide-react';
 import HeroBanner from '../components/HeroBanner';
 import axios from 'axios';
 import { Anime, Group, Post } from '../types';
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
 
   // Debug banners
   useEffect(() => {
-    ('Banners state updated:', banners);
+  // console.log('Banners state updated:', banners);
   }, [banners]);
 
   useEffect(() => {
@@ -86,25 +86,25 @@ const Home: React.FC = () => {
           withRetry(forYouReq)
         ]);
 
-        ('[Home] Featured anime response:', curatedFeaturedRes.data);
+  // console.log('[Home] Featured anime response:', curatedFeaturedRes.data);
         setFeaturedAnime(curatedFeaturedRes.data.animeIds || []);
-        ('[Home] Trending anime response:', trendingRes.data);
+  // console.log('[Home] Trending anime response:', trendingRes.data);
         setTrendingAnime(trendingRes.data.animeIds || []);
-        ('[Home] Popular anime response:', popularRes.data);
+  // console.log('[Home] Popular anime response:', popularRes.data);
         setPopularAnime(popularRes.data || []);
-        ('[Home] Genres response:', genresRes.data);
+  // console.log('[Home] Genres response:', genresRes.data);
         setGenres(genresRes.data);
-        ('[Home] Top week anime response:', topWeekRes.data);
+  // console.log('[Home] Top week anime response:', topWeekRes.data);
         setTopWeek(topWeekRes.data.animeIds || []);
-        ('[Home] Popular groups response:', groupsRes.data);
+  // console.log('[Home] Popular groups response:', groupsRes.data);
         setPopularGroups(groupsRes.data.groups);
-        ('[Home] Recent posts response:', postsRes.data);
+  // console.log('[Home] Recent posts response:', postsRes.data);
         setRecentPosts(postsRes.data.posts);
-        ('[Home] Top airing anime response:', topAiringRes.data);
+  // console.log('[Home] Top airing anime response:', topAiringRes.data);
         setTopAiring(topAiringRes.data.animeIds || []);
-        ('[Home] For you anime response:', forYouRes.data);
+  // console.log('[Home] For you anime response:', forYouRes.data);
         setForYou(forYouRes.data.animeIds || []);
-        ('[Home] Banners response:', bannersRes.data);
+  // console.log('[Home] Banners response:', bannersRes.data);
         const bannerData = (bannersRes.data || []).map((b:any)=>({ 
           _id: b._id,
           title: b.title,
@@ -115,7 +115,7 @@ const Home: React.FC = () => {
           status: b.status,
           genres: b.genres
         }));
-        ('[Home] Mapped banner data:', bannerData);
+  // console.log('[Home] Mapped banner data:', bannerData);
         setBanners(bannerData);
       } catch (error) {
         console.error('Error fetching home data:', error);

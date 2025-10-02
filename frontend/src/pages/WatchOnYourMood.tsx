@@ -40,31 +40,34 @@ const RecommendationCard: React.FC<{ onClick: () => void }> = ({ onClick }) => (
 
 // MAPPING (retained for context, though not used in this component logic)
 const moodGenreMap: Record<string, number> = {
-  happy: 4,      // Comedy
-  sad: 8,        // Drama
-  romance: 22,   // Romance
-  chill: 22,     // Slice of Life
-  horror: 14,    // Horror
-  adventure: 2,  // Adventure
-  energize: 1,   // Action
-  focus: 24,     // Psychological
-  party: 4,      // Comedy
-  sleep: 22,     // Slice of Life
-  workout: 1,    // Action
-  feelgood: 22,  // Slice of Life
+    happy: 4,      // Comedy
+    sad: 8,        // Drama
+    romance: 22,   // Romance
+    chill: 22,     // Slice of Life
+    horror: 14,    // Horror
+    adventure: 2,  // Adventure
+    energize: 1,   // Action
+    focus: 24,     // Psychological
+    party: 4,      // Comedy
+    sleep: 22,     // Slice of Life
+    workout: 1,    // Action
+    feelgood: 22,  // Slice of Life
 };
 
-const fetchAnimeByMood = async (mood: string) => {
-  const genreId = moodGenreMap[mood.toLowerCase()] || 22;
-  const url = `https://api.jikan.moe/v4/anime?genres=${genreId}&order_by=score&sort=desc&limit=5`;
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    (`Anime for mood '${mood}':`, data.data);
-  } catch (err) {
-    console.error('Error fetching from Jikan:', err);
-  }
-};
+// Utility function (not used in this component)
+export async function fetchAnimeByMood(mood: string) {
+    const genreId = moodGenreMap[mood.toLowerCase()] || 22;
+    const url = `https://api.jikan.moe/v4/anime?genres=${genreId}&order_by=score&sort=desc&limit=5`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        // console.log(`Anime for mood '${mood}':`, data.data);
+        return data.data;
+    } catch (err) {
+        console.error('Error fetching from Jikan:', err);
+        return [];
+    }
+}
 
 const moods = [
   // 🎭 Emotional Moods

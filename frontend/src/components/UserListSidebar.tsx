@@ -18,7 +18,7 @@ const UserListSidebar: React.FC = () => {
       setError(null);
       try {
         const res = await axios.get('/api/admin/users?limit=100');
-        ('UserListSidebar response:', res.data);
+  // console.log('UserListSidebar response:', res.data);
         // Defensive: handle missing users property or undefined
         setUsers(Array.isArray(res.data?.users) ? res.data.users : []);
       } catch (err: any) {
