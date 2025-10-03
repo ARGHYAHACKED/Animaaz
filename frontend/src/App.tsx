@@ -6,6 +6,7 @@ import ForYou from './pages/ForYou';
 import TopWeek from './pages/TopWeek';
 import TopAiring from './pages/TopAiring';
 import React from 'react';
+import ScrollToTop from './components/ScrollToTop';
 import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './contexts/AuthContext';
@@ -70,6 +71,7 @@ const App: React.FC = () => {
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
           <Navbar />
           <main className="">
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
