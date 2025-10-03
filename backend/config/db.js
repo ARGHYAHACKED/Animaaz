@@ -12,7 +12,7 @@ const connectDB = async () => {
     const adminExists = await User.findOne({ email: 'admin@email.com' });
     if (!adminExists) {
       const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash('123456', salt);
+      const hashedPassword = await bcrypt.hash('123456789107679672137', salt);
       
       const admin = new User({
         username: 'admin',
