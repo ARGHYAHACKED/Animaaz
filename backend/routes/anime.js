@@ -21,9 +21,7 @@ const upload = multer({
 router.get('/', async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-  let limit = parseInt(req.query.limit) || 20;
-  // Cap the limit to 10,000 max
-  if (limit > 10000) limit = 10000;
+    const limit = parseInt(req.query.limit) || 20;
     const skip = (page - 1) * limit;
     
     const { search, genre, status, year, sort } = req.query;

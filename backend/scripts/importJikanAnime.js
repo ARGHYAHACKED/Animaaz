@@ -10,8 +10,8 @@ const JIKAN_URL = 'https://api.jikan.moe/v4/top/anime?limit=25&page='; // 25 per
 
 async function fetchJikanAnime() {
   let allAnime = [];
-  for (let page = 1; page <= 200; page++) {   // loop through 200 pages = 5000 anime
-    (`Fetching page ${page}...`);
+  for (let page = 1; page <= 400; page++) {   // loop through 400 pages = 10,000 anime
+    console.log(`Fetching page ${page}...`);
     try {
         const res = await axios.get(JIKAN_URL + page);
         allAnime = allAnime.concat(res.data.data);
@@ -30,18 +30,18 @@ async function fetchJikanAnime() {
  
 async function main() {
   await dbConfig();
-  ('Connected to DB');
+  console.log('Connected to DB');
 
 // --------------------------------------------------------------------------------
 // 1. Find the maximum existing count using the custom field name
 // --------------------------------------------------------------------------------
   const lastAnime = await Anime.findOne().sort({ Indexcountfordatabase: -1 }).select('Indexcountfordatabase');
   let animeCount = (lastAnime && lastAnime.Indexcountfordatabase) ? lastAnime.Indexcountfordatabase + 1 : 1;
-  (`Starting anime count from: ${animeCount}`);
+  console.log(`Starting anime count from: ${animeCount}`);
 // --------------------------------------------------------------------------------
 
   const jikanAnime = await fetchJikanAnime();
-  (`Fetched ${jikanAnime.length} anime from Jikan`);
+  console.log(`Fetched ${jikanAnime.length} anime from Jikan`);
 
   // Helper to map Jikan status to allowed enum
   function mapStatus(jikanStatus) {
@@ -99,9 +99,9 @@ async function main() {
       source: 'jikan',
     });
     await anime.save();
-    (`Saved: [${currentCount}] ${anime.title}`);
+    console.log(`Saved: [${currentCount}] ${anime.title}`);
   }
-  ('Import complete!');
+  console.log('Import complete!');
   process.exit(0);
 }
 
