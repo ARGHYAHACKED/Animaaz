@@ -20,7 +20,7 @@ const AdminCurationBanner: React.FC = () => {
   const [searchResults, setSearchResults] = useState<Anime[]>([]);
   // Fetch all anime for dropdown
   useEffect(() => {
-    axios.get('http://https://animaaz.onrender.com/api/anime?limit=1000')
+    axios.get('https://animaaz.onrender.com/api/anime?limit=1000')
       .then(res => setAllAnime(res.data.anime || []))
       .catch(() => {});
   }, []);
@@ -40,7 +40,7 @@ const AdminCurationBanner: React.FC = () => {
   // Fetch current banner anime from curation model
   useEffect(() => {
     setLoading(true);
-    axios.get('http://https://animaaz.onrender.com/api/curation/banner')
+    axios.get('https://animaaz.onrender.com/api/curation/banner')
       .then(res => setBannerAnime(res.data))
       .catch(() => setError('Failed to load banner anime.'))
       .finally(() => setLoading(false));
@@ -53,7 +53,7 @@ const AdminCurationBanner: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get(`http://https://animaaz.onrender.com/api/anime?search=${encodeURIComponent(searchTerm)}&limit=10`);
+      const res = await axios.get(`https://animaaz.onrender.com/api/anime?search=${encodeURIComponent(searchTerm)}&limit=10`);
       setSearchResults(res.data.anime || []);
     } catch {
       setError('Search failed.');
@@ -81,7 +81,7 @@ const AdminCurationBanner: React.FC = () => {
     setSuccess(null);
     try {
       const animeIds = bannerAnime.map(a => a._id);
-      await axios.put('http://https://animaaz.onrender.com/api/curation/banner', { animeIds });
+      await axios.put('https://animaaz.onrender.com/api/curation/banner', { animeIds });
       setSuccess('Banner list updated!');
     } catch {
       setError('Failed to save changes.');

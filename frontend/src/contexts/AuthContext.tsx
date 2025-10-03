@@ -90,7 +90,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post('http://https://animaaz.onrender.com/api/auth/login', {
+      const response = await axios.post('https://animaaz.onrender.com/api/auth/login', {
         email,
         password,
       });
@@ -111,7 +111,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const register = async (username: string, email: string, password: string) => {
     try {
-      const response = await axios.post('http://https://animaaz.onrender.com/api/auth/register', {
+      const response = await axios.post('https://animaaz.onrender.com/api/auth/register', {
         username,
         email,
         password,
@@ -134,7 +134,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const logout = async () => {
     try {
       if (token) {
-        await axios.post('http://https://animaaz.onrender.com/api/auth/logout');
+        await axios.post('https://animaaz.onrender.com/api/auth/logout');
       }
     } catch (error) {
       console.error('Logout error:', error);

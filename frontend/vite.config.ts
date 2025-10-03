@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://https://animaaz.onrender.com', // Change to your backend port if different
+        target: 'https://animaaz.onrender.com', // Change to your backend port if different
         changeOrigin: true,
         secure: false,
       },
