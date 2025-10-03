@@ -33,13 +33,31 @@ router.get('/banner', async (req, res) => {
 router.get('/:type', async (req, res) => {
   try {
     (`[CURATION] GET /api/curation/${req.params.type}`);
-    const curation = await Curation.findOne({ type: req.params.type })
+    const type = req.params.type;
+    const curation = await Curation.findOne({ type })
       .populate('animeIds', 'title coverImage');
+
     if (!curation) {
-      (`[CURATION] Not found for type: ${req.params.type}`);
-      return res.status(404).json({ message: 'Curation not found' });
+      // Fallback: if an explicit curation doc doesn't exist yet,
+      // build the response from boolean flags on Anime documents.
+      // This keeps the frontend working (no 404) right after deployment.
+      const validTypes = new Set(['featured', 'trending', 'banner', 'topAiring', 'topWeek', 'forYou']);
+      if (!validTypes.has(type)) {
+        return res.status(400).json({ message: 'Invalid curation type' });
+      }
+
+      // banner special case is handled by /banner route, but keep a reasonable fallback here too
+      const query = { isActive: true };
+      query[type] = true; // e.g. { featured: true }
+
+      const list = await Anime.find(query)
+        .sort({ updatedAt: -1 })
+        .limit(30)
+        .select('title coverImage');
+
+      return res.json({ type, animeIds: list });
     }
-    (`[CURATION] Found:`, curation);
+    ('[CURATION] Found:', curation);
     res.json(curation);
   } catch (error) {
     console.error('[CURATION] GET error:', error);
