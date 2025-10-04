@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, TrendingUp, Users, MessageCircle } from 'lucide-react';
 import HeroBanner from '../components/HeroBanner';
+import SEOHead from '../components/SEOHead';
 import axios from 'axios';
 import { Anime, Group, Post } from '../types';
 import AnimeCard from '../components/AnimeCard';
@@ -137,6 +138,24 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <SEOHead
+        title="Animaaz — Free Anime Website Community | Watch Trending Anime Online"
+        description="Animaaz is the ultimate anime website to watch anime online free. Discover trending anime, join anime groups, get anime recommendations and connect with anime fans worldwide."
+        keywords="animaaz, anime website, watch anime online free, anime community, trending anime, top airing anime, anime streaming, anime groups, anime discussions"
+        canonicalUrl="/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Animaaz - Free Anime Website Community",
+          "description": "Watch anime online free on Animaaz. Discover trending anime, join anime groups, and connect with anime fans worldwide.",
+          "url": "https://animaaz.vercel.app/",
+          "mainEntity": {
+            "@type": "WebSite",
+            "name": "Animaaz",
+            "description": "Free anime streaming website with community features"
+          }
+        }}
+      />
       {/* Hero Section with anime banners */}
       {banners.length > 0 ? (
         <HeroBanner items={banners} />
@@ -149,11 +168,12 @@ const Home: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Welcome to{' '}
               <span className="bg-gradient-to-r from-yellow-400 to-pink-400 bg-clip-text text-transparent">
-                AnimeHub
+                Animaaz
               </span>
+              {' '}— Free Anime Website
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-purple-100 max-w-3xl mx-auto">
-              Discover amazing anime, join vibrant communities, and connect with fellow otaku from around the world
+              Watch anime online free, discover trending anime series, join anime communities, and connect with anime fans worldwide
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

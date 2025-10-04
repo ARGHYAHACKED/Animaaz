@@ -1,7 +1,34 @@
 User-agent: *
 Allow: /
 
+# Disallow admin and private pages
+Disallow: /admin/
+Disallow: /profile/
+Disallow: /posts/
+Disallow: /groups/
+Disallow: /notifications
+Disallow: /messages
+
+# Allow important pages
+Allow: /
+Allow: /trending
+Allow: /top-airing
+Allow: /featured
+Allow: /most-popular
+Allow: /top-week
+Allow: /for-you
+Allow: /community
+Allow: /search
+Allow: /watch-on-your-mood
+Allow: /personalize
+
+# Crawl delay
+Crawl-delay: 1
+
 # Sitemaps
 Sitemap: https://animaaz.vercel.app/sitemap.xml
+
+# Additional SEO
+Host: https://animaaz.vercel.app/
 
 
